@@ -8,14 +8,16 @@ public class SelectionSort {
     }
 
     public static void SelectionSort(int[] ints){
-        for (int i =0; i< ints.length; i++){
-            int min = ints[i];
-            for (int j = 0; j< ints.length; j++){
-                if (ints[i] < ints[j]){
-                    int a = ints[j];
-                    ints[j] = ints[i];
-                    ints[i] = a;
+        int intsLength = ints.length;
+        for (int i = 0; i < intsLength-1; i++){
+            int minI = i;
+            for (int j = i+1; j < intsLength; j++){
+                if (ints[j] < ints[minI]) {
+                    minI = j;
                 }
+                int a = ints[minI];
+                ints[minI] = ints[i];
+                ints[i] = a;
             }
         }
         System.out.println("Selection sort "+Arrays.toString(ints));
